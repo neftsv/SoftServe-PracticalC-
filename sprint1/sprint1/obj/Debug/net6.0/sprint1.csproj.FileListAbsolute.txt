@@ -1,0 +1,14 @@
+D:\Projects\С# .NET\sprint1\sprint1\bin\Debug\net6.0\sprint1.exe
+D:\Projects\С# .NET\sprint1\sprint1\bin\Debug\net6.0\sprint1.deps.json
+D:\Projects\С# .NET\sprint1\sprint1\bin\Debug\net6.0\sprint1.runtimeconfig.json
+D:\Projects\С# .NET\sprint1\sprint1\bin\Debug\net6.0\sprint1.dll
+D:\Projects\С# .NET\sprint1\sprint1\bin\Debug\net6.0\sprint1.pdb
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.AssemblyInfoInputs.cache
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.AssemblyInfo.cs
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.csproj.CoreCompileInputs.cache
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.dll
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\refint\sprint1.dll
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.pdb
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\sprint1.genruntimeconfig.cache
+D:\Projects\С# .NET\sprint1\sprint1\obj\Debug\net6.0\ref\sprint1.dll
