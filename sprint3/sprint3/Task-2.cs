@@ -8,15 +8,3 @@
         return words.Length;
     }
 }
-
-//namespace split3
-//{
-//    class P
-//    {
-//        static void Main()
-//        {
-//            string a = "Hello everyone, my name is Sviatoslav. I try to verify this method";
-//            Console.WriteLine(a.WorldCount());
-//        }
-//    }
-//}
