@@ -1,0 +1,14 @@
+D:\Projects\С# .NET\sprint4\sprint4\bin\Debug\net6.0\sprint4.exe
+D:\Projects\С# .NET\sprint4\sprint4\bin\Debug\net6.0\sprint4.deps.json
+D:\Projects\С# .NET\sprint4\sprint4\bin\Debug\net6.0\sprint4.runtimeconfig.json
+D:\Projects\С# .NET\sprint4\sprint4\bin\Debug\net6.0\sprint4.dll
+D:\Projects\С# .NET\sprint4\sprint4\bin\Debug\net6.0\sprint4.pdb
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.AssemblyInfoInputs.cache
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.AssemblyInfo.cs
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.csproj.CoreCompileInputs.cache
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.dll
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\refint\sprint4.dll
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.pdb
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\sprint4.genruntimeconfig.cache
+D:\Projects\С# .NET\sprint4\sprint4\obj\Debug\net6.0\ref\sprint4.dll
