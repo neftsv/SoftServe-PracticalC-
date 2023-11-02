@@ -1,21 +1,6 @@
-﻿interface IShape
+﻿interface IShape : ICloneable
 {
-    double Area() => 0;
-}
-
-interface ICloneable
-{
-    object Clone();
-}
-
-interface IComparable<T>
-{
-    int CompareTo(T other);
-}
-
-interface IComparer<T>
-{
-    int Compare(T obj1, T obj2);
+    double Area() => 0f;
 }
 
 class Rectangle : IShape
@@ -24,6 +9,7 @@ class Rectangle : IShape
     double Width { get; set; }
 
     double Area() => Length * Width;
+    public Object Clone() => this.MemberwiseClone();
 }
 
 class Trapezoid : IShape
@@ -32,7 +18,7 @@ class Trapezoid : IShape
     double Length2 { get; set; }
     double Width { get; set; }
     double Area () => 0.5 * (Length1 + Length2) * Width;
-    
+    public Object Clone() => this.MemberwiseClone();
 }
 
 class Room<T> where T : IShape, ICloneable, IComparable
@@ -59,27 +45,14 @@ class Room<T> where T : IShape, ICloneable, IComparable
     }
 }
 
-class RoomComparerByVolume<T> : IComparer<Room<T>> where T : IShape
-{
-    public int Compare(Room<T> x, Room<T> y)
-    {
-        if (x == null || y == null)
-        {
-            throw new ArgumentNullException("One or both of the rooms to compare are null.");
-        }
-
-        return x.Volume().CompareTo(y.Volume());
-    }
-}
-//class RoomComparerByVolume<T> : IComparer<Room> where T : IShape
+//class RoomComparerByVolume<T> : IComparer<Room<T>> where T : IShape
 //{
-//    public int Compare(T room1, T room2)
+//    public int Compare(Room<T> x, Room<T> y)
 //    {
-//        if (room1 == null || room2 == null)
-//        {
-//            throw new ArgumentNullException("One or both of the rooms to compare are null.");
-//        }
-
-//        if(room1.)
+//        if (x.Volume() > y.Volume())
+//            return 1;
+//        else if (x.Volume() > y.Volume())
+//            return -1;
+//        else return 0;
 //    }
 //}
