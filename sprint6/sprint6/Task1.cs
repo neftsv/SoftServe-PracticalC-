@@ -43,20 +43,3 @@ public class OutputUtils
         }
     }
 }
-
-class p
-{
-    static void Main(string[] args)
-    {
-        IEnumerable<string> children = new List<string> { "Halya1", "Olya2", "Ira3", "Andriy4", "Josh5" };
-        CircleOfChildren circle = new CircleOfChildren(children);
-
-        int syllables = 0;
-        int count = 6;
-
-        foreach (var child in circle.GetChildrenInOrder(syllables, count))
-        {
-            Console.WriteLine(child);
-        }
-    }
-}
