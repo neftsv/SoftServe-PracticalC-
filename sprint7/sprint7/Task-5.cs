@@ -6,11 +6,33 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+
+class Department
+{
+    public string Name { get; set; }
+    public int Id {  get; set; }
+
+    public Worker Manager { get; set; }
+    
+    public Department(string name, int id, Worker manager)
+    {
+        Name = name;
+        Id = id;
+        Manager = manager;
+    }
+}
+
+
 class Worker
 {
-    public int Id {  get; set; }
+    [JsonIgnore]
+    public int Id { get; set; }
+
+    [JsonPropertyName("Full name")]
     public string Name { get; set; }
-    public decimal Salary {  get; set; }
+
+    public decimal Salary { get; set; }
+    
     public Department Department { get; set; }
     public Worker(string name, decimal salary, Department department)
     {
@@ -21,81 +43,18 @@ class Worker
 
     public string Serialize()
     {
-        var workerJson = new
-        {
-            Full_name = Name,
-            Salary,
-            Department = new
-            {
-                Name = Department.Name,
-                Id = Department.Id,
-                Manager = Department.Manager != null ? new
-                {
-                    Full_name = Department.Manager.Name,
-                    Salary = Department.Manager.Salary
-                } : null
-            }
-        };
+        var workerJson = this;
 
-        return JsonSerializer.Serialize(workerJson);
+        var options = new JsonSerializerOptions { WriteIndented = true,  DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+        return JsonSerializer.Serialize(workerJson, options);
     }
-
     public static Worker Deserialize(string json)
     {
-        var workerJson = JsonSerializer.Deserialize<WorkerJson>(json);
-
-        return CreateWorkerFromWorkerJson(workerJson);
-    }
-    private class WorkerJson
-    {
-        public string Full_name { get; set; }
-        public decimal Salary { get; set; }
-        public DepartmentJson Department { get; set; }
-    }
-
-    private class DepartmentJson
-    {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public WorkerJson Manager { get; set; }
-    }
-    private static Worker CreateWorkerFromWorkerJson(WorkerJson workerJson)
-    {
+        var workerJson = JsonSerializer.Deserialize<Worker>(json);
         var manager = workerJson.Department?.Manager != null
-            ? new Worker(workerJson.Department.Manager.Full_name, workerJson.Department.Manager.Salary, null)
-            : null;
+     ? new Worker(workerJson.Department.Manager.Name, workerJson.Department.Manager.Salary, null)
+     : null;
 
-        return new Worker(workerJson.Full_name, workerJson.Salary, new Department(workerJson.Department.Name, workerJson.Department.Id, manager));
+        return new Worker(workerJson.Name, workerJson.Salary, new Department(workerJson.Department.Name, workerJson.Department.Id, manager)); ;
     }
 }
-class Department
-{
-    public string Name { get; set; }
-    public int Id {  get; set; }
-    public Worker Manager { get; set; }
-
-    public Department(string name, int id, Worker manager)
-    {
-        Name = name;
-        Id = id;
-        Manager = manager;
-    }
-    
-}
-
-//class Pr
-//{
-//    static void Main()
-//    {
-//        Worker w = new Worker("Anna", 700, new Department("Mechanics", 1, new Worker("Tom", 600, null)));
-
-//        // Serialize
-//        string serializedWorker = w.Serialize();
-//        Console.WriteLine(serializedWorker);
-
-//        // Deserialize
-//        Worker deserializedWorker = Worker.Deserialize(serializedWorker);
-//        //Console.WriteLine($"Deserialized Worker: {deserializedWorker.Name}, Salary: {deserializedWorker.Salary}");
-//    }
-//}
-
