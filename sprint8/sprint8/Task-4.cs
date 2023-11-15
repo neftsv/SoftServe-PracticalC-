@@ -4,47 +4,48 @@ class MyProgram
 {
     public static void Counter(int number)
     {
-        Task[] task1 = new Task[2]
+        Thread factorial = new Thread(() =>
         {
-            new Task(()=>{
-                int factorial = 1;
-                for(int integer = 1; integer <= number; integer++)
-                {
-                    factorial *= integer;
-                }
-                Console.WriteLine($"Factorial is: {factorial}");
-            }),
+            Factorial(number);
+        });
 
-            new Task(() =>
-            {
-                int fibonacci = 0;
-                if( number <= 0 ) {}
-                else if( number == 1 ) { fibonacci = 1; }
-                else 
-                {
-                    int []fibonacciArray = new int [number + 1];
-                    fibonacciArray [0] = 0;
-                    fibonacciArray [1] = 1;
-                    for( int integer = 2; integer <= number; integer++)
-                    {
-                        fibonacciArray[integer] = fibonacciArray[integer - 1] + fibonacciArray[integer - 2];
-                    }
-                    fibonacci = fibonacciArray[number];
-                }
-                Console.WriteLine($"Fibbonaci number is: {fibonacci}");
-            })
-        };
-
-        foreach( var task in task1 ) 
+        Thread fibonacci = new Thread(() =>
         {
-            task.Start();
-            task.Wait(100);
-        }
-        Task.WaitAll(task1);
+            Fibonacci(number);
+        });
+
+        factorial.Start();
+        fibonacci.Start();
+
+        factorial.Join();
+        fibonacci.Join();
     }
 
-    static void Main()
+    private static void Factorial(int number)
     {
-        Counter(4);
+        int factorial = 1;
+        for (int integer = 1; integer <= number; integer++)
+        {
+            factorial *= integer;
+        }
+        Console.WriteLine($"Factorial is: {factorial}");
+    }
+    private static void Fibonacci(int number)
+    {
+        int fibonacci = 0;
+        if (number <= 0) { }
+        else if (number == 1) { fibonacci = 1; }
+        else
+        {
+            int[] fibonacciArray = new int[number + 1];
+            fibonacciArray[0] = 0;
+            fibonacciArray[1] = 1;
+            for (int integer = 2; integer <= number; integer++)
+            {
+                fibonacciArray[integer] = fibonacciArray[integer - 1] + fibonacciArray[integer - 2];
+            }
+            fibonacci = fibonacciArray[number];
+        }
+        Console.WriteLine($"Fibbonaci number is: {fibonacci}");
     }
 }
