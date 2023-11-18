@@ -1,19 +1,22 @@
 ﻿using System.Threading.Tasks;
 
-class Calc
+namespace Task1
 {
-    public static int Seq(int n)
+    class Calc
     {
-        return n*n;
+        public static int Seq(int n)
+        {
+            return n * n;
+        }
     }
-}
 
-class CalcAsync
-{
-    public static async Task PrintSeqAsync(int n)
+    class CalcAsync
     {
-        int result = await Task.Run(() => Calc.Seq(n));
+        public static async Task PrintSeqAsync(int n)
+        {
+            int result = await Task.Run(() => Calc.Seq(n));
 
-        Console.WriteLine($"Seq[{n}] = {result}");
+            Console.WriteLine($"Seq[{n}] = {result}");
+        }
     }
 }
