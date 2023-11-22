@@ -35,7 +35,7 @@ namespace sprint10_Task6
     {
         public void Fly()
         {
-            Console.WriteLine("I believe, I can fly Oh! My corn!");
+            Console.WriteLine("I believe, I can fly");
         }
 
         public void Move()
@@ -114,16 +114,6 @@ namespace sprint10_Task6
         public void Move()
         {
             Console.WriteLine("I can swimm!");
-        }
-    }
-    class p
-    {
-        static void Main()
-        {
-            Cat Tom = new Cat();
-            Tom.Move();
-            Tom.Eat();
-            Tom.Bask();
         }
     }
 }
