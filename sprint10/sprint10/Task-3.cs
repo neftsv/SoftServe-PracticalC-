@@ -15,13 +15,18 @@ namespace sprint10_Task3
     {
         void AddNotificationToDB();
     }
+
+    public interface INotificationToDBRead
+    {
+        void ReadNotification();
+    }
     public abstract class NotificationService: INotification, INotificationToDB
     {
         public abstract void SendNotification();
         public abstract void AddNotificationToDB();
     }
 
-    class MailService : NotificationService
+    class MailService : NotificationService, INotificationToDBRead
     {
         public string Email { get; set; }
         public string EmailTitle { get; set; } = "User registration";
@@ -37,7 +42,12 @@ namespace sprint10_Task3
 
         public override void AddNotificationToDB()
         {
-            //Don`t write any
+           
+        }
+
+        public void ReadNotification()
+        {
+
         }
     }
 
