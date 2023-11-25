@@ -39,19 +39,4 @@ namespace Sprint11_Task1
             }
         }
     }
-
-    class p
-    {
-        static void Main()
-        {
-            // Set values for the fields
-            ReflectFields.Name = "Sample Name";
-            ReflectFields.MeasureX = 10;
-            ReflectFields.MeasureY = 20;
-            ReflectFields.MeasureZ = 30;
-
-            // Call the OutputFields method to display the field information
-            ReflectFields.OutputFields();
-        }
-    }
 }
