@@ -46,12 +46,4 @@ namespace Sprint11_Task3
                 return "Unknown";
         }
     }
-
-    class Program
-    {
-        static void Main()
-        {
-            ReflectProperties.WriteProperties();
-        }
-    }
 }
